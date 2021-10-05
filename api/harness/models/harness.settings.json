@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "harnesses",
+  "info": {
+    "name": "harness",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "inventory_available": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "collectionName": {
+      "type": "string"
+    }
+  }
+}

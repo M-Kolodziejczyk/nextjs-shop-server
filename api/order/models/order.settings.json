@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "name": "order",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "address": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "products": {
+      "type": "json"
+    },
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  }
+}

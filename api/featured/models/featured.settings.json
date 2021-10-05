@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "featureds",
+  "info": {
+    "name": "featured",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "carabiners": {
+      "collection": "carabiner"
+    },
+    "helmets": {
+      "collection": "helmet"
+    },
+    "harnesses": {
+      "collection": "harness"
+    },
+    "ropes": {
+      "collection": "rope"
+    },
+    "belay_devices": {
+      "collection": "belay-device"
+    }
+  }
+}

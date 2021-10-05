@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/carabiners",
+      "handler": "carabiner.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/carabiners/count",
+      "handler": "carabiner.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/carabiners/:id",
+      "handler": "carabiner.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/carabiners",
+      "handler": "carabiner.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/carabiners/:id",
+      "handler": "carabiner.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/carabiners/:id",
+      "handler": "carabiner.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

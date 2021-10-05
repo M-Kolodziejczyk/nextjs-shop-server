@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "helmets",
+  "info": {
+    "name": "helmet",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "inventory_available": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "collectionName": {
+      "type": "string"
+    }
+  }
+}

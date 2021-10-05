@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/helmets",
+      "handler": "helmet.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/helmets/count",
+      "handler": "helmet.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/helmets/:id",
+      "handler": "helmet.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/helmets",
+      "handler": "helmet.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/helmets/:id",
+      "handler": "helmet.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/helmets/:id",
+      "handler": "helmet.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

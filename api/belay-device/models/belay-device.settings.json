@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "belay_devices",
+  "info": {
+    "name": "belayDevice"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "inventory_available": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "collectionName": {
+      "type": "string"
+    }
+  }
+}

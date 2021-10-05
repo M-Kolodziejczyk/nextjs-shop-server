@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/belay-devices",
+      "handler": "belay-device.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/belay-devices/count",
+      "handler": "belay-device.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/belay-devices/:id",
+      "handler": "belay-device.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/belay-devices",
+      "handler": "belay-device.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/belay-devices/:id",
+      "handler": "belay-device.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/belay-devices/:id",
+      "handler": "belay-device.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

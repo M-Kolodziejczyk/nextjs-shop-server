@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/harnesses",
+      "handler": "harness.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/harnesses/count",
+      "handler": "harness.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/harnesses/:id",
+      "handler": "harness.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/harnesses",
+      "handler": "harness.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/harnesses/:id",
+      "handler": "harness.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/harnesses/:id",
+      "handler": "harness.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,1891 @@
+input FileInfoInput {
+  name: String
+  alternativeText: String
+  caption: String
+}
+
+type UsersPermissionsMe {
+  id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
+input UsersPermissionsRegisterInput {
+  username: String!
+  email: String!
+  password: String!
+}
+
+input UsersPermissionsLoginInput {
+  identifier: String!
+  password: String!
+  provider: String = "local"
+}
+
+type UsersPermissionsLoginPayload {
+  jwt: String
+  user: UsersPermissionsMe!
+}
+
+type UserPermissionsPasswordPayload {
+  ok: Boolean!
+}
+
+type BelayDevice {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  slug: String
+  brand: String
+  inventory_available: Int
+  price: Float
+  description: String
+  collectionName: String
+  published_at: DateTime
+  image(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+}
+
+type BelayDeviceConnection {
+  values: [BelayDevice]
+  groupBy: BelayDeviceGroupBy
+  aggregate: BelayDeviceAggregator
+}
+
+type BelayDeviceAggregator {
+  count: Int
+  totalCount: Int
+  sum: BelayDeviceAggregatorSum
+  avg: BelayDeviceAggregatorAvg
+  min: BelayDeviceAggregatorMin
+  max: BelayDeviceAggregatorMax
+}
+
+type BelayDeviceAggregatorSum {
+  inventory_available: Float
+  price: Float
+}
+
+type BelayDeviceAggregatorAvg {
+  inventory_available: Float
+  price: Float
+}
+
+type BelayDeviceAggregatorMin {
+  inventory_available: Float
+  price: Float
+}
+
+type BelayDeviceAggregatorMax {
+  inventory_available: Float
+  price: Float
+}
+
+type BelayDeviceGroupBy {
+  id: [BelayDeviceConnectionId]
+  _id: [BelayDeviceConnection_id]
+  createdAt: [BelayDeviceConnectionCreatedAt]
+  updatedAt: [BelayDeviceConnectionUpdatedAt]
+  name: [BelayDeviceConnectionName]
+  slug: [BelayDeviceConnectionSlug]
+  brand: [BelayDeviceConnectionBrand]
+  inventory_available: [BelayDeviceConnectionInventory_available]
+  price: [BelayDeviceConnectionPrice]
+  description: [BelayDeviceConnectionDescription]
+  collectionName: [BelayDeviceConnectionCollectionName]
+  published_at: [BelayDeviceConnectionPublished_at]
+}
+
+type BelayDeviceConnectionId {
+  key: ID
+  connection: BelayDeviceConnection
+}
+
+type BelayDeviceConnection_id {
+  key: ID
+  connection: BelayDeviceConnection
+}
+
+type BelayDeviceConnectionCreatedAt {
+  key: DateTime
+  connection: BelayDeviceConnection
+}
+
+type BelayDeviceConnectionUpdatedAt {
+  key: DateTime
+  connection: BelayDeviceConnection
+}
+
+type BelayDeviceConnectionName {
+  key: String
+  connection: BelayDeviceConnection
+}
+
+type BelayDeviceConnectionSlug {
+  key: String
+  connection: BelayDeviceConnection
+}
+
+type BelayDeviceConnectionBrand {
+  key: String
+  connection: BelayDeviceConnection
+}
+
+type BelayDeviceConnectionInventory_available {
+  key: Int
+  connection: BelayDeviceConnection
+}
+
+type BelayDeviceConnectionPrice {
+  key: Float
+  connection: BelayDeviceConnection
+}
+
+type BelayDeviceConnectionDescription {
+  key: String
+  connection: BelayDeviceConnection
+}
+
+type BelayDeviceConnectionCollectionName {
+  key: String
+  connection: BelayDeviceConnection
+}
+
+type BelayDeviceConnectionPublished_at {
+  key: DateTime
+  connection: BelayDeviceConnection
+}
+
+input BelayDeviceInput {
+  name: String
+  slug: String
+  brand: String
+  inventory_available: Int
+  price: Float
+  image: [ID]
+  description: String
+  collectionName: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editBelayDeviceInput {
+  name: String
+  slug: String
+  brand: String
+  inventory_available: Int
+  price: Float
+  image: [ID]
+  description: String
+  collectionName: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createBelayDeviceInput {
+  data: BelayDeviceInput
+}
+
+type createBelayDevicePayload {
+  belayDevice: BelayDevice
+}
+
+input updateBelayDeviceInput {
+  where: InputID
+  data: editBelayDeviceInput
+}
+
+type updateBelayDevicePayload {
+  belayDevice: BelayDevice
+}
+
+input deleteBelayDeviceInput {
+  where: InputID
+}
+
+type deleteBelayDevicePayload {
+  belayDevice: BelayDevice
+}
+
+type Carabiner {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  description: String
+  inventory_available: Int
+  price: Float
+  slug: String
+  brand: String
+  collectionName: String
+  published_at: DateTime
+  image(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+}
+
+type CarabinerConnection {
+  values: [Carabiner]
+  groupBy: CarabinerGroupBy
+  aggregate: CarabinerAggregator
+}
+
+type CarabinerAggregator {
+  count: Int
+  totalCount: Int
+  sum: CarabinerAggregatorSum
+  avg: CarabinerAggregatorAvg
+  min: CarabinerAggregatorMin
+  max: CarabinerAggregatorMax
+}
+
+type CarabinerAggregatorSum {
+  inventory_available: Float
+  price: Float
+}
+
+type CarabinerAggregatorAvg {
+  inventory_available: Float
+  price: Float
+}
+
+type CarabinerAggregatorMin {
+  inventory_available: Float
+  price: Float
+}
+
+type CarabinerAggregatorMax {
+  inventory_available: Float
+  price: Float
+}
+
+type CarabinerGroupBy {
+  id: [CarabinerConnectionId]
+  _id: [CarabinerConnection_id]
+  createdAt: [CarabinerConnectionCreatedAt]
+  updatedAt: [CarabinerConnectionUpdatedAt]
+  name: [CarabinerConnectionName]
+  description: [CarabinerConnectionDescription]
+  inventory_available: [CarabinerConnectionInventory_available]
+  price: [CarabinerConnectionPrice]
+  slug: [CarabinerConnectionSlug]
+  brand: [CarabinerConnectionBrand]
+  collectionName: [CarabinerConnectionCollectionName]
+  published_at: [CarabinerConnectionPublished_at]
+}
+
+type CarabinerConnectionId {
+  key: ID
+  connection: CarabinerConnection
+}
+
+type CarabinerConnection_id {
+  key: ID
+  connection: CarabinerConnection
+}
+
+type CarabinerConnectionCreatedAt {
+  key: DateTime
+  connection: CarabinerConnection
+}
+
+type CarabinerConnectionUpdatedAt {
+  key: DateTime
+  connection: CarabinerConnection
+}
+
+type CarabinerConnectionName {
+  key: String
+  connection: CarabinerConnection
+}
+
+type CarabinerConnectionDescription {
+  key: String
+  connection: CarabinerConnection
+}
+
+type CarabinerConnectionInventory_available {
+  key: Int
+  connection: CarabinerConnection
+}
+
+type CarabinerConnectionPrice {
+  key: Float
+  connection: CarabinerConnection
+}
+
+type CarabinerConnectionSlug {
+  key: String
+  connection: CarabinerConnection
+}
+
+type CarabinerConnectionBrand {
+  key: String
+  connection: CarabinerConnection
+}
+
+type CarabinerConnectionCollectionName {
+  key: String
+  connection: CarabinerConnection
+}
+
+type CarabinerConnectionPublished_at {
+  key: DateTime
+  connection: CarabinerConnection
+}
+
+input CarabinerInput {
+  name: String
+  description: String
+  image: [ID]
+  inventory_available: Int
+  price: Float
+  slug: String
+  brand: String
+  collectionName: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editCarabinerInput {
+  name: String
+  description: String
+  image: [ID]
+  inventory_available: Int
+  price: Float
+  slug: String
+  brand: String
+  collectionName: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createCarabinerInput {
+  data: CarabinerInput
+}
+
+type createCarabinerPayload {
+  carabiner: Carabiner
+}
+
+input updateCarabinerInput {
+  where: InputID
+  data: editCarabinerInput
+}
+
+type updateCarabinerPayload {
+  carabiner: Carabiner
+}
+
+input deleteCarabinerInput {
+  where: InputID
+}
+
+type deleteCarabinerPayload {
+  carabiner: Carabiner
+}
+
+type Featured {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  published_at: DateTime
+  carabiners(sort: String, limit: Int, start: Int, where: JSON): [Carabiner]
+  helmets(sort: String, limit: Int, start: Int, where: JSON): [Helmet]
+  harnesses(sort: String, limit: Int, start: Int, where: JSON): [Harness]
+  ropes(sort: String, limit: Int, start: Int, where: JSON): [Rope]
+  belay_devices(sort: String, limit: Int, start: Int, where: JSON): [BelayDevice]
+}
+
+input FeaturedInput {
+  carabiners: [ID]
+  helmets: [ID]
+  harnesses: [ID]
+  ropes: [ID]
+  belay_devices: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editFeaturedInput {
+  carabiners: [ID]
+  helmets: [ID]
+  harnesses: [ID]
+  ropes: [ID]
+  belay_devices: [ID]
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input updateFeaturedInput {
+  data: editFeaturedInput
+}
+
+type updateFeaturedPayload {
+  featured: Featured
+}
+
+type deleteFeaturedPayload {
+  featured: Featured
+}
+
+type Harness {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  slug: String
+  brand: String
+  price: Float
+  inventory_available: Int
+  description: String
+  collectionName: String
+  published_at: DateTime
+  image(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+}
+
+type HarnessConnection {
+  values: [Harness]
+  groupBy: HarnessGroupBy
+  aggregate: HarnessAggregator
+}
+
+type HarnessAggregator {
+  count: Int
+  totalCount: Int
+  sum: HarnessAggregatorSum
+  avg: HarnessAggregatorAvg
+  min: HarnessAggregatorMin
+  max: HarnessAggregatorMax
+}
+
+type HarnessAggregatorSum {
+  price: Float
+  inventory_available: Float
+}
+
+type HarnessAggregatorAvg {
+  price: Float
+  inventory_available: Float
+}
+
+type HarnessAggregatorMin {
+  price: Float
+  inventory_available: Float
+}
+
+type HarnessAggregatorMax {
+  price: Float
+  inventory_available: Float
+}
+
+type HarnessGroupBy {
+  id: [HarnessConnectionId]
+  _id: [HarnessConnection_id]
+  createdAt: [HarnessConnectionCreatedAt]
+  updatedAt: [HarnessConnectionUpdatedAt]
+  name: [HarnessConnectionName]
+  slug: [HarnessConnectionSlug]
+  brand: [HarnessConnectionBrand]
+  price: [HarnessConnectionPrice]
+  inventory_available: [HarnessConnectionInventory_available]
+  description: [HarnessConnectionDescription]
+  collectionName: [HarnessConnectionCollectionName]
+  published_at: [HarnessConnectionPublished_at]
+}
+
+type HarnessConnectionId {
+  key: ID
+  connection: HarnessConnection
+}
+
+type HarnessConnection_id {
+  key: ID
+  connection: HarnessConnection
+}
+
+type HarnessConnectionCreatedAt {
+  key: DateTime
+  connection: HarnessConnection
+}
+
+type HarnessConnectionUpdatedAt {
+  key: DateTime
+  connection: HarnessConnection
+}
+
+type HarnessConnectionName {
+  key: String
+  connection: HarnessConnection
+}
+
+type HarnessConnectionSlug {
+  key: String
+  connection: HarnessConnection
+}
+
+type HarnessConnectionBrand {
+  key: String
+  connection: HarnessConnection
+}
+
+type HarnessConnectionPrice {
+  key: Float
+  connection: HarnessConnection
+}
+
+type HarnessConnectionInventory_available {
+  key: Int
+  connection: HarnessConnection
+}
+
+type HarnessConnectionDescription {
+  key: String
+  connection: HarnessConnection
+}
+
+type HarnessConnectionCollectionName {
+  key: String
+  connection: HarnessConnection
+}
+
+type HarnessConnectionPublished_at {
+  key: DateTime
+  connection: HarnessConnection
+}
+
+input HarnessInput {
+  name: String
+  slug: String
+  brand: String
+  price: Float
+  inventory_available: Int
+  description: String
+  image: [ID]
+  collectionName: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editHarnessInput {
+  name: String
+  slug: String
+  brand: String
+  price: Float
+  inventory_available: Int
+  description: String
+  image: [ID]
+  collectionName: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createHarnessInput {
+  data: HarnessInput
+}
+
+type createHarnessPayload {
+  harness: Harness
+}
+
+input updateHarnessInput {
+  where: InputID
+  data: editHarnessInput
+}
+
+type updateHarnessPayload {
+  harness: Harness
+}
+
+input deleteHarnessInput {
+  where: InputID
+}
+
+type deleteHarnessPayload {
+  harness: Harness
+}
+
+type Helmet {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  description: String
+  inventory_available: Int
+  price: Float
+  slug: String
+  brand: String
+  collectionName: String
+  published_at: DateTime
+  image(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+}
+
+type HelmetConnection {
+  values: [Helmet]
+  groupBy: HelmetGroupBy
+  aggregate: HelmetAggregator
+}
+
+type HelmetAggregator {
+  count: Int
+  totalCount: Int
+  sum: HelmetAggregatorSum
+  avg: HelmetAggregatorAvg
+  min: HelmetAggregatorMin
+  max: HelmetAggregatorMax
+}
+
+type HelmetAggregatorSum {
+  inventory_available: Float
+  price: Float
+}
+
+type HelmetAggregatorAvg {
+  inventory_available: Float
+  price: Float
+}
+
+type HelmetAggregatorMin {
+  inventory_available: Float
+  price: Float
+}
+
+type HelmetAggregatorMax {
+  inventory_available: Float
+  price: Float
+}
+
+type HelmetGroupBy {
+  id: [HelmetConnectionId]
+  _id: [HelmetConnection_id]
+  createdAt: [HelmetConnectionCreatedAt]
+  updatedAt: [HelmetConnectionUpdatedAt]
+  name: [HelmetConnectionName]
+  description: [HelmetConnectionDescription]
+  inventory_available: [HelmetConnectionInventory_available]
+  price: [HelmetConnectionPrice]
+  slug: [HelmetConnectionSlug]
+  brand: [HelmetConnectionBrand]
+  collectionName: [HelmetConnectionCollectionName]
+  published_at: [HelmetConnectionPublished_at]
+}
+
+type HelmetConnectionId {
+  key: ID
+  connection: HelmetConnection
+}
+
+type HelmetConnection_id {
+  key: ID
+  connection: HelmetConnection
+}
+
+type HelmetConnectionCreatedAt {
+  key: DateTime
+  connection: HelmetConnection
+}
+
+type HelmetConnectionUpdatedAt {
+  key: DateTime
+  connection: HelmetConnection
+}
+
+type HelmetConnectionName {
+  key: String
+  connection: HelmetConnection
+}
+
+type HelmetConnectionDescription {
+  key: String
+  connection: HelmetConnection
+}
+
+type HelmetConnectionInventory_available {
+  key: Int
+  connection: HelmetConnection
+}
+
+type HelmetConnectionPrice {
+  key: Float
+  connection: HelmetConnection
+}
+
+type HelmetConnectionSlug {
+  key: String
+  connection: HelmetConnection
+}
+
+type HelmetConnectionBrand {
+  key: String
+  connection: HelmetConnection
+}
+
+type HelmetConnectionCollectionName {
+  key: String
+  connection: HelmetConnection
+}
+
+type HelmetConnectionPublished_at {
+  key: DateTime
+  connection: HelmetConnection
+}
+
+input HelmetInput {
+  name: String
+  description: String
+  image: [ID]
+  inventory_available: Int
+  price: Float
+  slug: String
+  brand: String
+  collectionName: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editHelmetInput {
+  name: String
+  description: String
+  image: [ID]
+  inventory_available: Int
+  price: Float
+  slug: String
+  brand: String
+  collectionName: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createHelmetInput {
+  data: HelmetInput
+}
+
+type createHelmetPayload {
+  helmet: Helmet
+}
+
+input updateHelmetInput {
+  where: InputID
+  data: editHelmetInput
+}
+
+type updateHelmetPayload {
+  helmet: Helmet
+}
+
+input deleteHelmetInput {
+  where: InputID
+}
+
+type deleteHelmetPayload {
+  helmet: Helmet
+}
+
+type Order {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  address: String
+  city: String
+  amount: Float
+  products: JSON
+  name: String
+  email: String
+  status: String
+  published_at: DateTime
+}
+
+type OrderConnection {
+  values: [Order]
+  groupBy: OrderGroupBy
+  aggregate: OrderAggregator
+}
+
+type OrderAggregator {
+  count: Int
+  totalCount: Int
+  sum: OrderAggregatorSum
+  avg: OrderAggregatorAvg
+  min: OrderAggregatorMin
+  max: OrderAggregatorMax
+}
+
+type OrderAggregatorSum {
+  amount: Float
+}
+
+type OrderAggregatorAvg {
+  amount: Float
+}
+
+type OrderAggregatorMin {
+  amount: Float
+}
+
+type OrderAggregatorMax {
+  amount: Float
+}
+
+type OrderGroupBy {
+  id: [OrderConnectionId]
+  _id: [OrderConnection_id]
+  createdAt: [OrderConnectionCreatedAt]
+  updatedAt: [OrderConnectionUpdatedAt]
+  address: [OrderConnectionAddress]
+  city: [OrderConnectionCity]
+  amount: [OrderConnectionAmount]
+  products: [OrderConnectionProducts]
+  name: [OrderConnectionName]
+  email: [OrderConnectionEmail]
+  status: [OrderConnectionStatus]
+  published_at: [OrderConnectionPublished_at]
+}
+
+type OrderConnectionId {
+  key: ID
+  connection: OrderConnection
+}
+
+type OrderConnection_id {
+  key: ID
+  connection: OrderConnection
+}
+
+type OrderConnectionCreatedAt {
+  key: DateTime
+  connection: OrderConnection
+}
+
+type OrderConnectionUpdatedAt {
+  key: DateTime
+  connection: OrderConnection
+}
+
+type OrderConnectionAddress {
+  key: String
+  connection: OrderConnection
+}
+
+type OrderConnectionCity {
+  key: String
+  connection: OrderConnection
+}
+
+type OrderConnectionAmount {
+  key: Float
+  connection: OrderConnection
+}
+
+type OrderConnectionProducts {
+  key: JSON
+  connection: OrderConnection
+}
+
+type OrderConnectionName {
+  key: String
+  connection: OrderConnection
+}
+
+type OrderConnectionEmail {
+  key: String
+  connection: OrderConnection
+}
+
+type OrderConnectionStatus {
+  key: String
+  connection: OrderConnection
+}
+
+type OrderConnectionPublished_at {
+  key: DateTime
+  connection: OrderConnection
+}
+
+input OrderInput {
+  address: String
+  city: String
+  amount: Float
+  products: JSON
+  name: String
+  email: String
+  status: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editOrderInput {
+  address: String
+  city: String
+  amount: Float
+  products: JSON
+  name: String
+  email: String
+  status: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createOrderInput {
+  data: OrderInput
+}
+
+type createOrderPayload {
+  order: Order
+}
+
+input updateOrderInput {
+  where: InputID
+  data: editOrderInput
+}
+
+type updateOrderPayload {
+  order: Order
+}
+
+input deleteOrderInput {
+  where: InputID
+}
+
+type deleteOrderPayload {
+  order: Order
+}
+
+type ProductCategory {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  published_at: DateTime
+}
+
+type ProductCategoryConnection {
+  values: [ProductCategory]
+  groupBy: ProductCategoryGroupBy
+  aggregate: ProductCategoryAggregator
+}
+
+type ProductCategoryAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ProductCategoryGroupBy {
+  id: [ProductCategoryConnectionId]
+  _id: [ProductCategoryConnection_id]
+  createdAt: [ProductCategoryConnectionCreatedAt]
+  updatedAt: [ProductCategoryConnectionUpdatedAt]
+  name: [ProductCategoryConnectionName]
+  published_at: [ProductCategoryConnectionPublished_at]
+}
+
+type ProductCategoryConnectionId {
+  key: ID
+  connection: ProductCategoryConnection
+}
+
+type ProductCategoryConnection_id {
+  key: ID
+  connection: ProductCategoryConnection
+}
+
+type ProductCategoryConnectionCreatedAt {
+  key: DateTime
+  connection: ProductCategoryConnection
+}
+
+type ProductCategoryConnectionUpdatedAt {
+  key: DateTime
+  connection: ProductCategoryConnection
+}
+
+type ProductCategoryConnectionName {
+  key: String
+  connection: ProductCategoryConnection
+}
+
+type ProductCategoryConnectionPublished_at {
+  key: DateTime
+  connection: ProductCategoryConnection
+}
+
+input ProductCategoryInput {
+  name: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editProductCategoryInput {
+  name: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createProductCategoryInput {
+  data: ProductCategoryInput
+}
+
+type createProductCategoryPayload {
+  productCategory: ProductCategory
+}
+
+input updateProductCategoryInput {
+  where: InputID
+  data: editProductCategoryInput
+}
+
+type updateProductCategoryPayload {
+  productCategory: ProductCategory
+}
+
+input deleteProductCategoryInput {
+  where: InputID
+}
+
+type deleteProductCategoryPayload {
+  productCategory: ProductCategory
+}
+
+type Rope {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  brand: String
+  description: String
+  price: Float
+  slug: String
+  inventory_available: Int
+  collectionName: String
+  published_at: DateTime
+  image(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+}
+
+type RopeConnection {
+  values: [Rope]
+  groupBy: RopeGroupBy
+  aggregate: RopeAggregator
+}
+
+type RopeAggregator {
+  count: Int
+  totalCount: Int
+  sum: RopeAggregatorSum
+  avg: RopeAggregatorAvg
+  min: RopeAggregatorMin
+  max: RopeAggregatorMax
+}
+
+type RopeAggregatorSum {
+  price: Float
+  inventory_available: Float
+}
+
+type RopeAggregatorAvg {
+  price: Float
+  inventory_available: Float
+}
+
+type RopeAggregatorMin {
+  price: Float
+  inventory_available: Float
+}
+
+type RopeAggregatorMax {
+  price: Float
+  inventory_available: Float
+}
+
+type RopeGroupBy {
+  id: [RopeConnectionId]
+  _id: [RopeConnection_id]
+  createdAt: [RopeConnectionCreatedAt]
+  updatedAt: [RopeConnectionUpdatedAt]
+  name: [RopeConnectionName]
+  brand: [RopeConnectionBrand]
+  description: [RopeConnectionDescription]
+  price: [RopeConnectionPrice]
+  slug: [RopeConnectionSlug]
+  inventory_available: [RopeConnectionInventory_available]
+  collectionName: [RopeConnectionCollectionName]
+  published_at: [RopeConnectionPublished_at]
+}
+
+type RopeConnectionId {
+  key: ID
+  connection: RopeConnection
+}
+
+type RopeConnection_id {
+  key: ID
+  connection: RopeConnection
+}
+
+type RopeConnectionCreatedAt {
+  key: DateTime
+  connection: RopeConnection
+}
+
+type RopeConnectionUpdatedAt {
+  key: DateTime
+  connection: RopeConnection
+}
+
+type RopeConnectionName {
+  key: String
+  connection: RopeConnection
+}
+
+type RopeConnectionBrand {
+  key: String
+  connection: RopeConnection
+}
+
+type RopeConnectionDescription {
+  key: String
+  connection: RopeConnection
+}
+
+type RopeConnectionPrice {
+  key: Float
+  connection: RopeConnection
+}
+
+type RopeConnectionSlug {
+  key: String
+  connection: RopeConnection
+}
+
+type RopeConnectionInventory_available {
+  key: Int
+  connection: RopeConnection
+}
+
+type RopeConnectionCollectionName {
+  key: String
+  connection: RopeConnection
+}
+
+type RopeConnectionPublished_at {
+  key: DateTime
+  connection: RopeConnection
+}
+
+input RopeInput {
+  name: String
+  brand: String
+  description: String
+  price: Float
+  slug: String
+  image: [ID]
+  inventory_available: Int
+  collectionName: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editRopeInput {
+  name: String
+  brand: String
+  description: String
+  price: Float
+  slug: String
+  image: [ID]
+  inventory_available: Int
+  collectionName: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input createRopeInput {
+  data: RopeInput
+}
+
+type createRopePayload {
+  rope: Rope
+}
+
+input updateRopeInput {
+  where: InputID
+  data: editRopeInput
+}
+
+type updateRopePayload {
+  rope: Rope
+}
+
+input deleteRopeInput {
+  where: InputID
+}
+
+type deleteRopePayload {
+  rope: Rope
+}
+
+type I18NLocale {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  code: String
+}
+
+input LocaleInput {
+  name: String
+  code: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editLocaleInput {
+  name: String
+  code: String
+  created_by: ID
+  updated_by: ID
+}
+
+type UploadFile {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileAggregator {
+  count: Int
+  totalCount: Int
+  sum: UploadFileAggregatorSum
+  avg: UploadFileAggregatorAvg
+  min: UploadFileAggregatorMin
+  max: UploadFileAggregatorMax
+}
+
+type UploadFileAggregatorSum {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorAvg {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMin {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMax {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileGroupBy {
+  id: [UploadFileConnectionId]
+  _id: [UploadFileConnection_id]
+  createdAt: [UploadFileConnectionCreatedAt]
+  updatedAt: [UploadFileConnectionUpdatedAt]
+  name: [UploadFileConnectionName]
+  alternativeText: [UploadFileConnectionAlternativeText]
+  caption: [UploadFileConnectionCaption]
+  width: [UploadFileConnectionWidth]
+  height: [UploadFileConnectionHeight]
+  formats: [UploadFileConnectionFormats]
+  hash: [UploadFileConnectionHash]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  previewUrl: [UploadFileConnectionPreviewUrl]
+  provider: [UploadFileConnectionProvider]
+  provider_metadata: [UploadFileConnectionProvider_metadata]
+}
+
+type UploadFileConnectionId {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnection_id {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionAlternativeText {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCaption {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionWidth {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHeight {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionFormats {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: Float
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionPreviewUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider_metadata {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+input FileInput {
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editFileInput {
+  name: String
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String
+  ext: String
+  mime: String
+  size: Float
+  url: String
+  previewUrl: String
+  provider: String
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input deleteFileInput {
+  where: InputID
+}
+
+type deleteFilePayload {
+  file: UploadFile
+}
+
+type UsersPermissionsPermission {
+  id: ID!
+  _id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsRole {
+  id: ID!
+  _id: ID!
+  name: String!
+  description: String
+  type: String
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleConnection {
+  values: [UsersPermissionsRole]
+  groupBy: UsersPermissionsRoleGroupBy
+  aggregate: UsersPermissionsRoleAggregator
+}
+
+type UsersPermissionsRoleAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsRoleGroupBy {
+  id: [UsersPermissionsRoleConnectionId]
+  _id: [UsersPermissionsRoleConnection_id]
+  name: [UsersPermissionsRoleConnectionName]
+  description: [UsersPermissionsRoleConnectionDescription]
+  type: [UsersPermissionsRoleConnectionType]
+}
+
+type UsersPermissionsRoleConnectionId {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnection_id {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionName {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionDescription {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionType {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editRoleInput {
+  name: String
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateRoleInput {
+  where: InputID
+  data: editRoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsUser {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsRole
+  name: String
+}
+
+type UsersPermissionsUserConnection {
+  values: [UsersPermissionsUser]
+  groupBy: UsersPermissionsUserGroupBy
+  aggregate: UsersPermissionsUserAggregator
+}
+
+type UsersPermissionsUserAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsUserGroupBy {
+  id: [UsersPermissionsUserConnectionId]
+  _id: [UsersPermissionsUserConnection_id]
+  createdAt: [UsersPermissionsUserConnectionCreatedAt]
+  updatedAt: [UsersPermissionsUserConnectionUpdatedAt]
+  username: [UsersPermissionsUserConnectionUsername]
+  email: [UsersPermissionsUserConnectionEmail]
+  provider: [UsersPermissionsUserConnectionProvider]
+  confirmed: [UsersPermissionsUserConnectionConfirmed]
+  blocked: [UsersPermissionsUserConnectionBlocked]
+  role: [UsersPermissionsUserConnectionRole]
+  name: [UsersPermissionsUserConnectionName]
+}
+
+type UsersPermissionsUserConnectionId {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnection_id {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionCreatedAt {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUpdatedAt {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUsername {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionProvider {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionBlocked {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionName {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmationToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  name: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editUserInput {
+  username: String
+  email: String
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmationToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  name: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
+input updateUserInput {
+  where: InputID
+  data: editUserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | BelayDevice | BelayDeviceConnection | BelayDeviceAggregator | BelayDeviceAggregatorSum | BelayDeviceAggregatorAvg | BelayDeviceAggregatorMin | BelayDeviceAggregatorMax | BelayDeviceGroupBy | BelayDeviceConnectionId | BelayDeviceConnection_id | BelayDeviceConnectionCreatedAt | BelayDeviceConnectionUpdatedAt | BelayDeviceConnectionName | BelayDeviceConnectionSlug | BelayDeviceConnectionBrand | BelayDeviceConnectionInventory_available | BelayDeviceConnectionPrice | BelayDeviceConnectionDescription | BelayDeviceConnectionCollectionName | BelayDeviceConnectionPublished_at | createBelayDevicePayload | updateBelayDevicePayload | deleteBelayDevicePayload | Carabiner | CarabinerConnection | CarabinerAggregator | CarabinerAggregatorSum | CarabinerAggregatorAvg | CarabinerAggregatorMin | CarabinerAggregatorMax | CarabinerGroupBy | CarabinerConnectionId | CarabinerConnection_id | CarabinerConnectionCreatedAt | CarabinerConnectionUpdatedAt | CarabinerConnectionName | CarabinerConnectionDescription | CarabinerConnectionInventory_available | CarabinerConnectionPrice | CarabinerConnectionSlug | CarabinerConnectionBrand | CarabinerConnectionCollectionName | CarabinerConnectionPublished_at | createCarabinerPayload | updateCarabinerPayload | deleteCarabinerPayload | Featured | updateFeaturedPayload | deleteFeaturedPayload | Harness | HarnessConnection | HarnessAggregator | HarnessAggregatorSum | HarnessAggregatorAvg | HarnessAggregatorMin | HarnessAggregatorMax | HarnessGroupBy | HarnessConnectionId | HarnessConnection_id | HarnessConnectionCreatedAt | HarnessConnectionUpdatedAt | HarnessConnectionName | HarnessConnectionSlug | HarnessConnectionBrand | HarnessConnectionPrice | HarnessConnectionInventory_available | HarnessConnectionDescription | HarnessConnectionCollectionName | HarnessConnectionPublished_at | createHarnessPayload | updateHarnessPayload | deleteHarnessPayload | Helmet | HelmetConnection | HelmetAggregator | HelmetAggregatorSum | HelmetAggregatorAvg | HelmetAggregatorMin | HelmetAggregatorMax | HelmetGroupBy | HelmetConnectionId | HelmetConnection_id | HelmetConnectionCreatedAt | HelmetConnectionUpdatedAt | HelmetConnectionName | HelmetConnectionDescription | HelmetConnectionInventory_available | HelmetConnectionPrice | HelmetConnectionSlug | HelmetConnectionBrand | HelmetConnectionCollectionName | HelmetConnectionPublished_at | createHelmetPayload | updateHelmetPayload | deleteHelmetPayload | Order | OrderConnection | OrderAggregator | OrderAggregatorSum | OrderAggregatorAvg | OrderAggregatorMin | OrderAggregatorMax | OrderGroupBy | OrderConnectionId | OrderConnection_id | OrderConnectionCreatedAt | OrderConnectionUpdatedAt | OrderConnectionAddress | OrderConnectionCity | OrderConnectionAmount | OrderConnectionProducts | OrderConnectionName | OrderConnectionEmail | OrderConnectionStatus | OrderConnectionPublished_at | createOrderPayload | updateOrderPayload | deleteOrderPayload | ProductCategory | ProductCategoryConnection | ProductCategoryAggregator | ProductCategoryGroupBy | ProductCategoryConnectionId | ProductCategoryConnection_id | ProductCategoryConnectionCreatedAt | ProductCategoryConnectionUpdatedAt | ProductCategoryConnectionName | ProductCategoryConnectionPublished_at | createProductCategoryPayload | updateProductCategoryPayload | deleteProductCategoryPayload | Rope | RopeConnection | RopeAggregator | RopeAggregatorSum | RopeAggregatorAvg | RopeAggregatorMin | RopeAggregatorMax | RopeGroupBy | RopeConnectionId | RopeConnection_id | RopeConnectionCreatedAt | RopeConnectionUpdatedAt | RopeConnectionName | RopeConnectionBrand | RopeConnectionDescription | RopeConnectionPrice | RopeConnectionSlug | RopeConnectionInventory_available | RopeConnectionCollectionName | RopeConnectionPublished_at | createRopePayload | updateRopePayload | deleteRopePayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionName | createUserPayload | updateUserPayload | deleteUserPayload
+
+input InputID {
+  id: ID!
+}
+
+enum PublicationState {
+  LIVE
+  PREVIEW
+}
+
+type AdminUser {
+  id: ID!
+  username: String
+  firstname: String!
+  lastname: String!
+}
+
+type Query {
+  belayDevice(id: ID!, publicationState: PublicationState): BelayDevice
+  belayDevices(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [BelayDevice]
+  belayDevicesConnection(sort: String, limit: Int, start: Int, where: JSON): BelayDeviceConnection
+  carabiner(id: ID!, publicationState: PublicationState): Carabiner
+  carabiners(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Carabiner]
+  carabinersConnection(sort: String, limit: Int, start: Int, where: JSON): CarabinerConnection
+  featured(publicationState: PublicationState): Featured
+  harness(id: ID!, publicationState: PublicationState): Harness
+  harnesses(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Harness]
+  harnessesConnection(sort: String, limit: Int, start: Int, where: JSON): HarnessConnection
+  helmet(id: ID!, publicationState: PublicationState): Helmet
+  helmets(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Helmet]
+  helmetsConnection(sort: String, limit: Int, start: Int, where: JSON): HelmetConnection
+  order(id: ID!, publicationState: PublicationState): Order
+  orders(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Order]
+  ordersConnection(sort: String, limit: Int, start: Int, where: JSON): OrderConnection
+  productCategory(id: ID!, publicationState: PublicationState): ProductCategory
+  productCategories(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [ProductCategory]
+  productCategoriesConnection(sort: String, limit: Int, start: Int, where: JSON): ProductCategoryConnection
+  rope(id: ID!, publicationState: PublicationState): Rope
+  ropes(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Rope]
+  ropesConnection(sort: String, limit: Int, start: Int, where: JSON): RopeConnection
+  files(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UploadFile]
+  filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
+  role(id: ID!, publicationState: PublicationState): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UsersPermissionsRole]
+  rolesConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsRoleConnection
+  user(id: ID!, publicationState: PublicationState): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UsersPermissionsUser]
+  usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
+  me: UsersPermissionsMe
+}
+
+type Mutation {
+  createBelayDevice(input: createBelayDeviceInput): createBelayDevicePayload
+  updateBelayDevice(input: updateBelayDeviceInput): updateBelayDevicePayload
+  deleteBelayDevice(input: deleteBelayDeviceInput): deleteBelayDevicePayload
+  createCarabiner(input: createCarabinerInput): createCarabinerPayload
+  updateCarabiner(input: updateCarabinerInput): updateCarabinerPayload
+  deleteCarabiner(input: deleteCarabinerInput): deleteCarabinerPayload
+  updateFeatured(input: updateFeaturedInput): updateFeaturedPayload
+  deleteFeatured: deleteFeaturedPayload
+  createHarness(input: createHarnessInput): createHarnessPayload
+  updateHarness(input: updateHarnessInput): updateHarnessPayload
+  deleteHarness(input: deleteHarnessInput): deleteHarnessPayload
+  createHelmet(input: createHelmetInput): createHelmetPayload
+  updateHelmet(input: updateHelmetInput): updateHelmetPayload
+  deleteHelmet(input: deleteHelmetInput): deleteHelmetPayload
+  createOrder(input: createOrderInput): createOrderPayload
+  updateOrder(input: updateOrderInput): updateOrderPayload
+  deleteOrder(input: deleteOrderInput): deleteOrderPayload
+  createProductCategory(input: createProductCategoryInput): createProductCategoryPayload
+  updateProductCategory(input: updateProductCategoryInput): updateProductCategoryPayload
+  deleteProductCategory(input: deleteProductCategoryInput): deleteProductCategoryPayload
+  createRope(input: createRopeInput): createRopePayload
+  updateRope(input: updateRopeInput): updateRopePayload
+  deleteRope(input: deleteRopeInput): deleteRopePayload
+
+  """Delete one file"""
+  deleteFile(input: deleteFileInput): deleteFilePayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+
+  """Create a new user"""
+  createUser(input: createUserInput): createUserPayload
+
+  """Update an existing user"""
+  updateUser(input: updateUserInput): updateUserPayload
+
+  """Delete an existing user"""
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  upload(refId: ID, ref: String, field: String, source: String, info: FileInfoInput, file: Upload!): UploadFile!
+  multipleUpload(refId: ID, ref: String, field: String, source: String, files: [Upload]!): [UploadFile]!
+  updateFileInfo(id: ID!, info: FileInfoInput!): UploadFile!
+  login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+  register(input: UsersPermissionsRegisterInput!): UsersPermissionsLoginPayload!
+  forgotPassword(email: String!): UserPermissionsPasswordPayload
+  resetPassword(password: String!, passwordConfirmation: String!, code: String!): UsersPermissionsLoginPayload
+  emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+"""A time string with format: HH:mm:ss.SSS"""
+scalar Time
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+"""The `Long` scalar type represents 52-bit integers"""
+scalar Long
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
