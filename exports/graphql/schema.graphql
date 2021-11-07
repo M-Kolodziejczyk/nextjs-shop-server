@@ -53,6 +53,7 @@ type BelayDevice {
   price: Float
   description: String
   collectionName: String
+  img: String
   published_at: DateTime
   image(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
@@ -104,6 +105,7 @@ type BelayDeviceGroupBy {
   price: [BelayDeviceConnectionPrice]
   description: [BelayDeviceConnectionDescription]
   collectionName: [BelayDeviceConnectionCollectionName]
+  img: [BelayDeviceConnectionImg]
   published_at: [BelayDeviceConnectionPublished_at]
 }
 
@@ -162,6 +164,11 @@ type BelayDeviceConnectionCollectionName {
   connection: BelayDeviceConnection
 }
 
+type BelayDeviceConnectionImg {
+  key: String
+  connection: BelayDeviceConnection
+}
+
 type BelayDeviceConnectionPublished_at {
   key: DateTime
   connection: BelayDeviceConnection
@@ -176,6 +183,7 @@ input BelayDeviceInput {
   image: [ID]
   description: String
   collectionName: String
+  img: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -190,6 +198,7 @@ input editBelayDeviceInput {
   image: [ID]
   description: String
   collectionName: String
+  img: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -232,6 +241,7 @@ type Carabiner {
   slug: String
   brand: String
   collectionName: String
+  img: String
   published_at: DateTime
   image(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
@@ -283,6 +293,7 @@ type CarabinerGroupBy {
   slug: [CarabinerConnectionSlug]
   brand: [CarabinerConnectionBrand]
   collectionName: [CarabinerConnectionCollectionName]
+  img: [CarabinerConnectionImg]
   published_at: [CarabinerConnectionPublished_at]
 }
 
@@ -341,6 +352,11 @@ type CarabinerConnectionCollectionName {
   connection: CarabinerConnection
 }
 
+type CarabinerConnectionImg {
+  key: String
+  connection: CarabinerConnection
+}
+
 type CarabinerConnectionPublished_at {
   key: DateTime
   connection: CarabinerConnection
@@ -355,6 +371,7 @@ input CarabinerInput {
   slug: String
   brand: String
   collectionName: String
+  img: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -369,6 +386,7 @@ input editCarabinerInput {
   slug: String
   brand: String
   collectionName: String
+  img: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -458,6 +476,7 @@ type Harness {
   inventory_available: Int
   description: String
   collectionName: String
+  img: String
   published_at: DateTime
   image(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
@@ -509,6 +528,7 @@ type HarnessGroupBy {
   inventory_available: [HarnessConnectionInventory_available]
   description: [HarnessConnectionDescription]
   collectionName: [HarnessConnectionCollectionName]
+  img: [HarnessConnectionImg]
   published_at: [HarnessConnectionPublished_at]
 }
 
@@ -567,6 +587,11 @@ type HarnessConnectionCollectionName {
   connection: HarnessConnection
 }
 
+type HarnessConnectionImg {
+  key: String
+  connection: HarnessConnection
+}
+
 type HarnessConnectionPublished_at {
   key: DateTime
   connection: HarnessConnection
@@ -581,6 +606,7 @@ input HarnessInput {
   description: String
   image: [ID]
   collectionName: String
+  img: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -595,6 +621,7 @@ input editHarnessInput {
   description: String
   image: [ID]
   collectionName: String
+  img: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -637,6 +664,7 @@ type Helmet {
   slug: String
   brand: String
   collectionName: String
+  img: String
   published_at: DateTime
   image(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
@@ -688,6 +716,7 @@ type HelmetGroupBy {
   slug: [HelmetConnectionSlug]
   brand: [HelmetConnectionBrand]
   collectionName: [HelmetConnectionCollectionName]
+  img: [HelmetConnectionImg]
   published_at: [HelmetConnectionPublished_at]
 }
 
@@ -746,6 +775,11 @@ type HelmetConnectionCollectionName {
   connection: HelmetConnection
 }
 
+type HelmetConnectionImg {
+  key: String
+  connection: HelmetConnection
+}
+
 type HelmetConnectionPublished_at {
   key: DateTime
   connection: HelmetConnection
@@ -760,6 +794,7 @@ input HelmetInput {
   slug: String
   brand: String
   collectionName: String
+  img: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -774,6 +809,7 @@ input editHelmetInput {
   slug: String
   brand: String
   collectionName: String
+  img: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -1086,6 +1122,7 @@ type Rope {
   slug: String
   inventory_available: Int
   collectionName: String
+  img: String
   published_at: DateTime
   image(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
 }
@@ -1137,6 +1174,7 @@ type RopeGroupBy {
   slug: [RopeConnectionSlug]
   inventory_available: [RopeConnectionInventory_available]
   collectionName: [RopeConnectionCollectionName]
+  img: [RopeConnectionImg]
   published_at: [RopeConnectionPublished_at]
 }
 
@@ -1195,6 +1233,11 @@ type RopeConnectionCollectionName {
   connection: RopeConnection
 }
 
+type RopeConnectionImg {
+  key: String
+  connection: RopeConnection
+}
+
 type RopeConnectionPublished_at {
   key: DateTime
   connection: RopeConnection
@@ -1209,6 +1252,7 @@ input RopeInput {
   image: [ID]
   inventory_available: Int
   collectionName: String
+  img: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -1223,6 +1267,7 @@ input editRopeInput {
   image: [ID]
   inventory_available: Int
   collectionName: String
+  img: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
@@ -1755,7 +1800,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | BelayDevice | BelayDeviceConnection | BelayDeviceAggregator | BelayDeviceAggregatorSum | BelayDeviceAggregatorAvg | BelayDeviceAggregatorMin | BelayDeviceAggregatorMax | BelayDeviceGroupBy | BelayDeviceConnectionId | BelayDeviceConnection_id | BelayDeviceConnectionCreatedAt | BelayDeviceConnectionUpdatedAt | BelayDeviceConnectionName | BelayDeviceConnectionSlug | BelayDeviceConnectionBrand | BelayDeviceConnectionInventory_available | BelayDeviceConnectionPrice | BelayDeviceConnectionDescription | BelayDeviceConnectionCollectionName | BelayDeviceConnectionPublished_at | createBelayDevicePayload | updateBelayDevicePayload | deleteBelayDevicePayload | Carabiner | CarabinerConnection | CarabinerAggregator | CarabinerAggregatorSum | CarabinerAggregatorAvg | CarabinerAggregatorMin | CarabinerAggregatorMax | CarabinerGroupBy | CarabinerConnectionId | CarabinerConnection_id | CarabinerConnectionCreatedAt | CarabinerConnectionUpdatedAt | CarabinerConnectionName | CarabinerConnectionDescription | CarabinerConnectionInventory_available | CarabinerConnectionPrice | CarabinerConnectionSlug | CarabinerConnectionBrand | CarabinerConnectionCollectionName | CarabinerConnectionPublished_at | createCarabinerPayload | updateCarabinerPayload | deleteCarabinerPayload | Featured | updateFeaturedPayload | deleteFeaturedPayload | Harness | HarnessConnection | HarnessAggregator | HarnessAggregatorSum | HarnessAggregatorAvg | HarnessAggregatorMin | HarnessAggregatorMax | HarnessGroupBy | HarnessConnectionId | HarnessConnection_id | HarnessConnectionCreatedAt | HarnessConnectionUpdatedAt | HarnessConnectionName | HarnessConnectionSlug | HarnessConnectionBrand | HarnessConnectionPrice | HarnessConnectionInventory_available | HarnessConnectionDescription | HarnessConnectionCollectionName | HarnessConnectionPublished_at | createHarnessPayload | updateHarnessPayload | deleteHarnessPayload | Helmet | HelmetConnection | HelmetAggregator | HelmetAggregatorSum | HelmetAggregatorAvg | HelmetAggregatorMin | HelmetAggregatorMax | HelmetGroupBy | HelmetConnectionId | HelmetConnection_id | HelmetConnectionCreatedAt | HelmetConnectionUpdatedAt | HelmetConnectionName | HelmetConnectionDescription | HelmetConnectionInventory_available | HelmetConnectionPrice | HelmetConnectionSlug | HelmetConnectionBrand | HelmetConnectionCollectionName | HelmetConnectionPublished_at | createHelmetPayload | updateHelmetPayload | deleteHelmetPayload | Order | OrderConnection | OrderAggregator | OrderAggregatorSum | OrderAggregatorAvg | OrderAggregatorMin | OrderAggregatorMax | OrderGroupBy | OrderConnectionId | OrderConnection_id | OrderConnectionCreatedAt | OrderConnectionUpdatedAt | OrderConnectionAddress | OrderConnectionCity | OrderConnectionAmount | OrderConnectionProducts | OrderConnectionName | OrderConnectionEmail | OrderConnectionStatus | OrderConnectionPublished_at | createOrderPayload | updateOrderPayload | deleteOrderPayload | ProductCategory | ProductCategoryConnection | ProductCategoryAggregator | ProductCategoryGroupBy | ProductCategoryConnectionId | ProductCategoryConnection_id | ProductCategoryConnectionCreatedAt | ProductCategoryConnectionUpdatedAt | ProductCategoryConnectionName | ProductCategoryConnectionPublished_at | createProductCategoryPayload | updateProductCategoryPayload | deleteProductCategoryPayload | Rope | RopeConnection | RopeAggregator | RopeAggregatorSum | RopeAggregatorAvg | RopeAggregatorMin | RopeAggregatorMax | RopeGroupBy | RopeConnectionId | RopeConnection_id | RopeConnectionCreatedAt | RopeConnectionUpdatedAt | RopeConnectionName | RopeConnectionBrand | RopeConnectionDescription | RopeConnectionPrice | RopeConnectionSlug | RopeConnectionInventory_available | RopeConnectionCollectionName | RopeConnectionPublished_at | createRopePayload | updateRopePayload | deleteRopePayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionName | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | BelayDevice | BelayDeviceConnection | BelayDeviceAggregator | BelayDeviceAggregatorSum | BelayDeviceAggregatorAvg | BelayDeviceAggregatorMin | BelayDeviceAggregatorMax | BelayDeviceGroupBy | BelayDeviceConnectionId | BelayDeviceConnection_id | BelayDeviceConnectionCreatedAt | BelayDeviceConnectionUpdatedAt | BelayDeviceConnectionName | BelayDeviceConnectionSlug | BelayDeviceConnectionBrand | BelayDeviceConnectionInventory_available | BelayDeviceConnectionPrice | BelayDeviceConnectionDescription | BelayDeviceConnectionCollectionName | BelayDeviceConnectionImg | BelayDeviceConnectionPublished_at | createBelayDevicePayload | updateBelayDevicePayload | deleteBelayDevicePayload | Carabiner | CarabinerConnection | CarabinerAggregator | CarabinerAggregatorSum | CarabinerAggregatorAvg | CarabinerAggregatorMin | CarabinerAggregatorMax | CarabinerGroupBy | CarabinerConnectionId | CarabinerConnection_id | CarabinerConnectionCreatedAt | CarabinerConnectionUpdatedAt | CarabinerConnectionName | CarabinerConnectionDescription | CarabinerConnectionInventory_available | CarabinerConnectionPrice | CarabinerConnectionSlug | CarabinerConnectionBrand | CarabinerConnectionCollectionName | CarabinerConnectionImg | CarabinerConnectionPublished_at | createCarabinerPayload | updateCarabinerPayload | deleteCarabinerPayload | Featured | updateFeaturedPayload | deleteFeaturedPayload | Harness | HarnessConnection | HarnessAggregator | HarnessAggregatorSum | HarnessAggregatorAvg | HarnessAggregatorMin | HarnessAggregatorMax | HarnessGroupBy | HarnessConnectionId | HarnessConnection_id | HarnessConnectionCreatedAt | HarnessConnectionUpdatedAt | HarnessConnectionName | HarnessConnectionSlug | HarnessConnectionBrand | HarnessConnectionPrice | HarnessConnectionInventory_available | HarnessConnectionDescription | HarnessConnectionCollectionName | HarnessConnectionImg | HarnessConnectionPublished_at | createHarnessPayload | updateHarnessPayload | deleteHarnessPayload | Helmet | HelmetConnection | HelmetAggregator | HelmetAggregatorSum | HelmetAggregatorAvg | HelmetAggregatorMin | HelmetAggregatorMax | HelmetGroupBy | HelmetConnectionId | HelmetConnection_id | HelmetConnectionCreatedAt | HelmetConnectionUpdatedAt | HelmetConnectionName | HelmetConnectionDescription | HelmetConnectionInventory_available | HelmetConnectionPrice | HelmetConnectionSlug | HelmetConnectionBrand | HelmetConnectionCollectionName | HelmetConnectionImg | HelmetConnectionPublished_at | createHelmetPayload | updateHelmetPayload | deleteHelmetPayload | Order | OrderConnection | OrderAggregator | OrderAggregatorSum | OrderAggregatorAvg | OrderAggregatorMin | OrderAggregatorMax | OrderGroupBy | OrderConnectionId | OrderConnection_id | OrderConnectionCreatedAt | OrderConnectionUpdatedAt | OrderConnectionAddress | OrderConnectionCity | OrderConnectionAmount | OrderConnectionProducts | OrderConnectionName | OrderConnectionEmail | OrderConnectionStatus | OrderConnectionPublished_at | createOrderPayload | updateOrderPayload | deleteOrderPayload | ProductCategory | ProductCategoryConnection | ProductCategoryAggregator | ProductCategoryGroupBy | ProductCategoryConnectionId | ProductCategoryConnection_id | ProductCategoryConnectionCreatedAt | ProductCategoryConnectionUpdatedAt | ProductCategoryConnectionName | ProductCategoryConnectionPublished_at | createProductCategoryPayload | updateProductCategoryPayload | deleteProductCategoryPayload | Rope | RopeConnection | RopeAggregator | RopeAggregatorSum | RopeAggregatorAvg | RopeAggregatorMin | RopeAggregatorMax | RopeGroupBy | RopeConnectionId | RopeConnection_id | RopeConnectionCreatedAt | RopeConnectionUpdatedAt | RopeConnectionName | RopeConnectionBrand | RopeConnectionDescription | RopeConnectionPrice | RopeConnectionSlug | RopeConnectionInventory_available | RopeConnectionCollectionName | RopeConnectionImg | RopeConnectionPublished_at | createRopePayload | updateRopePayload | deleteRopePayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionName | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!
